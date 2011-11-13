@@ -3,8 +3,22 @@
   <head>
     <title>{{title}}</title>
     <meta charset="utf-8" />
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/style.css" />
   </head>
   <body>
+  <div class="topbar">
+    <div class="topbar-inner fill">
+      <div class="container">
+        <h3><a class="brand" href="#">The S3 Cookbook</a></h3>
+      </div>
+    </div>
+  </div>
+  <div id="main">
     {{{content}}}
+  </div>
+  <div id="sidebar">
+    {{{toc}}}
+  </div>
   </body>
 </html>

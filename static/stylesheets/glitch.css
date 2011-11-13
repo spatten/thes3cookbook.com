@@ -1,0 +1,47 @@
+body {
+  color: #404040; }
+
+#main {
+  background-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding: 50px; }
+
+#filters {
+  position: fixed;
+  top: 40px;
+  padding-top: 20px;
+  background-color: white;
+  width: 100%;
+  margin-top: 0px;
+  padding-bottom: 20px; }
+
+table.item-list {
+  margin-top: 30px; }
+  table.item-list td.image-column {
+    width: 50px; }
+  table.item-list td {
+    cursor: hand; }
+    table.item-list td div.image-wrapper {
+      height: 40px;
+      width: 40px;
+      float: left;
+      vertical-align: middle; }
+      table.item-list td div.image-wrapper img {
+        margin: auto;
+        max-width: 40px;
+        max-height: 40px;
+        padding: 5px; }
+    table.item-list td span {
+      cursor: hand;
+      margin-right: 20px; }
+  table.item-list .popover-container {
+    position: relative;
+    top: -40px;
+    left: 250px; }
+
+#info-message {
+  margin-top: 70px; }
+
+div#items-list ul#filters {
+  z-index: 10000; }

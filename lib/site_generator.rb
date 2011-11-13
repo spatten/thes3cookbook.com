@@ -2,9 +2,12 @@ class SiteGenerator
 
   HTML_FILES_DIR = "/var/lpub/book_generator_repos/thes3cookbook_markdown/html_files"
   BOOK_FILE = "/var/lpub/book_generator_repos/thes3cookbook_markdown/manuscript/Book.txt"
-  PUBLIC_DIR = File.expand_path('../../public', __FILE__)
-  LAYOUTS_DIR = File.expand_path('../../layouts', __FILE__) 
-  BOOK_OUTPUT_DIR = File.expand_path('../../public/book', __FILE__)
+  TOC_FILE = "/var/lpub/book_generator_repos/thes3cookbook_markdown/output/toc.html"
+
+  PROJECT_ROOT = File.expand_path('../..', __FILE__)
+  PUBLIC_DIR = File.join(PROJECT_ROOT, 'public')
+  LAYOUTS_DIR = File.join(PROJECT_ROOT, 'layouts')
+  BOOK_OUTPUT_DIR = File.join(PUBLIC_DIR, 'book')
   
   def initialize
     @layout = File.read(File.join(LAYOUTS_DIR, 'site.html'))
@@ -16,9 +19,10 @@ class SiteGenerator
 
   def generate
     setup_directories
-    write_index
     get_input_files
+    write_index
     write_book_files
+    copy_js_and_css
   end
 
   private
@@ -35,6 +39,7 @@ class SiteGenerator
   
   def get_input_files
     @files = File.read(BOOK_FILE).split("\n")
+    @toc = File.read(TOC_FILE)
   end
 
   def write_book_files
@@ -47,7 +52,11 @@ class SiteGenerator
     end
   end
 
+  def copy_js_and_css
+    `cp -r #{File.join(PROJECT_ROOT, "static/*")} #{PUBLIC_DIR}`
+  end
+
   def content_in_layout(content)
-    Mustache.render(@layout, :content => content)
+    Mustache.render(@layout, :content => content, :toc => @toc)
   end
 end
