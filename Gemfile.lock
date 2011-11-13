@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    mustache (0.99.4)
+    rake (0.9.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mustache
+  rake
