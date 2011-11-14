@@ -3,8 +3,8 @@
   <head>
     <title>{{title}}</title>
     <meta charset="utf-8" />
-    <link href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" media="all" href="stylesheets/style.css" />
+    <link href="/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/stylesheets/style.css" />
   </head>
   <body>
     <div class="topbar">
@@ -16,11 +16,11 @@
     </div>
     <div id="wrapper">
       <div class="row">
-        <div id="main" class="span10">
-          {{{content}}}
-        </div>
-        <div id="sidebar" class="span6">
+        <div id="sidebar" class="span4">
           {{{toc}}}
+        </div>
+        <div id="main" class="span12">
+          {{{content}}}
         </div>
       </div>
     </div>
